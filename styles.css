@@ -1,0 +1,244 @@
+/* styles.css */
+
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background: #f9f9f9;
+    color: #333;
+}
+
+body.dark-mode {
+    background: #6F42C1;
+    color: #f9f9f9;
+}
+
+body.reading-mode {
+    background: #fff;
+    color: #000;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #6F42C1;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+}
+
+/* Controls (Search, Category, Local News, Theme Switch) */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.controls input[type="text"],
+.controls select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.controls button {
+    padding: 8px 16px;
+    background-color: #FFC107;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #e0a800;
+}
+
+.controls .theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.controls .theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.controls .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.controls .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.controls input:checked + .slider {
+    background-color: #2196F3;
+}
+
+.controls input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* News Grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* News Item */
+.news-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+body.dark-mode .news-item {
+    background: #432f91;
+    color: #ecf0f1;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.news-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.news-item h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #34495e;
+}
+
+body.dark-mode .news-item h2 {
+    color: #ecf0f1;
+}
+
+.news-item p {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+body.dark-mode .news-item p {
+    color: #bdc3c7;
+}
+
+.news-item time {
+    font-size: 0.9rem;
+    color: #bdc3c7;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Favorite button */
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #FFC107;
+}
+
+.favorite-btn.favorited {
+    color: #FF0000;
+}
+
+/* Rating Stars */
+.rating {
+    display: flex;
+    margin-top: 10px;
+}
+
+.rating .star {
+    cursor: pointer;
+    color: #ccc;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.rating .star.selected {
+    color: #FFC107;
+}
+
+/* Footer styles */
+footer {
+    background-color: #6F42C1;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #FFC107;
+}
